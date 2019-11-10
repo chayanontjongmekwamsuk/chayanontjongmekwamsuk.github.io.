@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Checking image</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Dosis:400,700"
+      rel="stylesheet"
+    />
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <link href="style.css" rel="stylesheet" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    
+  </head>
+
+  <body>
+    
+    <!-- Navigation -->
+    <nav id="siteNav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+          <!-- Logo and responsive toggle -->
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">
+                <span class="glyphicon glyphicon-fire"></span> 
+                BME DEV
+              </a>
+          </div>
+          <!-- Navbar links -->
+          <div class="collapse navbar-collapse" id="navbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active">
+                  <a href="main.html">Home</a>
+              </li>
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <span class="caret"></span></a>
+                <ul class="dropdown-menu" aria-labelledby="about-us">
+                  <li><a href="showimg.html">View Image</a></li>
+                </ul>
+              </li>
+              <li>
+                  <a href="contact.html">Contact</a>
+              </li>
+              <li>
+                  <a href="profile.html">Profile</a>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+    </nav>
+
+    <div id="root">
+
+      <header class="centerheader"></header>
+      
+      <main>
+        <div class="centerblock">
+          <div class = "frameitem">
+            <h1>INSERT IMAGES</h1>
+            <input id='inputFile' type='file' class = "center2" onchange="readURL(this);" />
+            <img id="blah" src="" alt="your image" />
+          </div>
+        </div>
+      </main>
+
+      <section class="center2">
+        <form action="#">
+          <button type= "button" onclick="sendData({test:'ok'})">Process</button>
+        </form>  
+      </section>
+
+    </div>
+
+    <!-- Content 3
+    <section class="content content-3">
+      <div class="container">
+        <h2 class="section-header">
+          <span class="glyphicon text-primary"></span>
+          <br>Alternative Platforms</h2>
+            <p class="lead text-muted">Check medical information</p> 
+            <a href="#" class="btn btn-primary btn-lg">Medical Info</a>               
+          </div>
+      </div>
+    </section> -->
+
+    <script src="script.js"></script>
+
+  </body>
+</html>

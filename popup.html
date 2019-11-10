@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  body {font-family: Arial, Helvetica, sans-serif;}
+
+  /* The Modal (background) */
+  .slide {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+  }
+
+  /* Modal Content */
+  .slide-content {
+    /* position: fixed;
+    top: 200px; */
+    background-color: #fefefe;
+    /*width: 60%;*/
+    position:absolute; 
+    top:50%;
+    left:35%;
+    width:55%;  /* adjust as per your needs */
+    margin-left:-200px;   /* negative half of width above */
+    margin-top:-200px;   /* negative half of height above */
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
+  }
+
+  /* The Close Button */
+  .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .slide-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+  }
+
+  .slide-body {padding: 2px 16px;}
+
+  .slide-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+  }
+
+  /* Add Animation */
+  @-webkit-keyframes slideIn {
+    from {top: 100px; opacity: 0} 
+    to {top: 200; opacity: 1}
+  }
+
+  @keyframes slideIn {
+    from {top: 100px; opacity: 0}
+    to {top: 200; opacity: 1}
+  }
+
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+  }
+
+  .center {
+  padding: 70px 0;
+  border: 2px dashed rgb(161, 165, 161);
+  text-align: center;
+}
+header {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  text-align: center;
+  background-color: rgb(71, 51, 51);
+}
+
+  </style>
+</head>
+<body>
+
+
+
+<!-- Trigger/Open The Slide -->
+<header>
+  <button id="Btnslide">Show Info</button>
+</header>
+
+
+<!-- The Slide -->
+<div id="myslide" class="slide">
+
+  <!-- Slide content -->
+  <div class="slide-content">
+
+    <div class="slide-header">
+      <span class="close">&times;</span>
+      <h2>Information</h2>
+    </div>
+
+    <div class="slide-body">
+      <p>Disk Size</p>
+      <p>C:D </p>
+      <p>Hemorrhege</p>
+      <p>ISNT rule</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// Get the modal
+var slide = document.getElementById("myslide");
+
+// Get the button that opens the modal
+var btn = document.getElementById("Btnslide");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  slide.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  slide.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == slide) {
+    slide.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>

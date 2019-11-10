@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        * {box-sizing: border-box;}
+
+        #header {
+			position: absolute;
+			top: 0;
+			left: 0px;
+			width: 100%;
+			height: 100px; 
+			overflow: hidden; /* Disables scrollbars on the header frame. To enable scrollbars, change "hidden" to "scroll" */
+			background: #BCCE98;
+		}
+
+        main {
+			position: fixed;
+			top: 100px; /* Set this to the height of the header */
+			left: 0px; 
+			right: 0;
+			bottom: 0;
+			overflow: auto; 
+			background: #fff;
+		}
+
+        /* Button used to open the contact form - fixed at the bottom of the page */
+        .open-login {
+        background-color: #555;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        opacity: 0.8;
+        position: fixed;
+        top: 230px;
+        left: 43%;
+        width: 280px;
+        }
+
+        /* Button used to open the contact form - fixed at the bottom of the page */
+        .open-regist {
+        background-color: rgb(235, 235, 245);
+        color: black;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        opacity: 0.8;
+        position: fixed;
+        top: 280px;
+        left: 43%;
+        width: 280px;
+        }
+
+        /* The popup form - hidden by default */
+        .form-popup {
+        display: none;
+        position: fixed;
+        top: 230px;
+        left: 43%;
+        border: 3px solid #f1f1f1;
+        z-index: 9;
+        background-color: white;
+        }
+
+        /* Add styles to the form container */
+        .form-container {
+        max-width: 300px;
+        padding: 10px;
+        background-color: white;
+        }
+
+        /* Full-width input fields */
+        .form-container input[type=text], .form-container input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        border: none;
+        background: #f1f1f1;
+        }
+
+        /* When the inputs get focus, do something */
+        .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+        }
+
+        /* Set a style for the submit/login button */
+        .form-container .btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom:10px;
+        opacity: 0.8;
+        }
+
+        /* Add a red background color to the cancel button */
+        .form-container .cancel {
+        background-color: red;
+        }
+
+        /* Add some hover effects to buttons */
+        .form-container .btn:hover, .open-login:hover {
+        opacity: 1;
+        }
+
+        /* Add some hover effects to buttons */
+        .form-container .btn:hover, .open-regist:hover {
+        opacity: 1;
+        }
+
+
+
+
+        /*Registeration form*/
+        .registForm {
+        font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        font-size: 0.8em;
+        width: 30em;
+        padding: 1em;
+        border: 2px solid rgb(165, 165, 165);
+        }
+
+        .registForm * {
+        box-sizing: border-box;
+        }
+
+        .registForm fieldset {
+        border: none;
+        padding: 0;
+        }
+
+        .registForm legend,
+        .registForm label {
+        padding: 0;
+        font-weight: bold;
+        }
+
+        .registForm label.choice {
+        font-size: 0.9em;
+        font-weight: normal;
+        }
+
+        .registForm label {
+        text-align: left;
+        display: block;
+        }
+
+        .registForm input[type="text"],
+        .registForm input[type="password"],
+        .registForm input[type="number"],
+        .registForm input[type="date"],
+        .registForm select,
+        .registForm textarea {
+        float: right;
+        width: 60%;
+        border: 1px solid #ccc;
+        font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        font-size: 0.9em;
+        padding: 0.3em;
+        }
+
+        /* Add styles to the form container */
+        .registForm textarea {
+        max-width: 300px;
+        padding: 5px;
+        background-color: white;
+        }
+
+        .registForm input[type="gender"],
+        .registForm input[type="checkbox"] {
+        margin-left: 40%;
+        }
+
+        .registForm .button {
+        padding: 1em;
+        border-radius: 0.5em;
+        background: #eee;
+        border: none;
+        font-weight: bold;
+        margin-left: 40%;
+        margin-top: 1.8em;
+        cursor: pointer;
+        }
+
+        .registForm .button:hover {
+        background: rgb(248, 206, 177);
+        cursor: pointer;
+        }
+
+        /* Add a red background color to the cancel button */
+        .registForm .close {
+        background-color: red;
+        }
+
+        /*Position text*/
+        .center {
+        padding: 5px 0;
+        text-align: center;
+        }
+
+        </style>
+    </head>
+
+
+
+
+
+    <body>
+        <header id="header">
+            <div id="logo">
+                <h1 class="center">GLAUCOMA DETECTOR</h1>
+            </div> 
+        </header>
+
+        <main>
+            <h1 class="center">Information Patients</h1>
+            <p class="center">Please login or regist before using</p>
+        </main>
+        
+        <button class="open-login" onclick="openForm()">Log In</button>
+        <button class="open-regist" onclick="openregistForm()">Register</button>
+
+        <div class="form-popup" id="myForm">
+            <form action="main.html" class="form-container">
+                <h1>Login</h1>
+
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <button type="submit" class="btn">Login</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+
+        <script>
+            function openForm() {
+            document.getElementById("myForm").style.display = "block";
+            }
+
+            function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+            }
+            function openregistForm() {
+            document.getElementById("registForm").style.display = "block";
+            }
+            function closeregistForm() {
+            document.getElementById("registForm").style.display = "none";
+            }
+
+        </script>
+
+        <div class="form-popup" id="registForm">
+        <form class="registForm" method="get" enctype="application/x-www-form-urlencoded" action="register.html">
+
+            <p>
+            <label>Name
+            <input type="text" name="customer_name" required>
+            </label> 
+            </p>
+            
+            <p>
+            <label>Surname 
+            <input type="text" name="customer_surname">
+            </label>
+            </p>
+            
+            <p>
+            <label>Patient ID 
+            <input type="number" name="Patient_ID">
+            </label>
+            </p>
+
+            <p>
+                <label>Email
+                    <input type="text" name="email">
+                </label>
+            </p>
+            
+            <p>
+                <label>Password
+                    <input type="password" name="psw">
+                </label>
+            </p>
+
+            <fieldset>
+                <legend>Gender</legend>
+                <p><label class="choice"> <input type="radio" name="gender" required value="male"> Male </label></p>
+                <p><label class="choice"> <input type="radio" name="gender" required value="female"> Female </label></p>
+            </fieldset>
+            
+            <p>
+                <label>Birthday
+                    <input type="date" name="birthdate" required>
+                </label>
+            </p>
+                
+            <p>
+                <label>Family history
+                    <select id="family_history" name="family_history">
+                        <option value="" selected="selected">Select One</option>
+                        <option value="have" >There are someone in family</option>
+                        <option value="donhave" >None</option>
+                        <option value="notsure" >Not sure</option>
+                    </select>
+                </label> 
+            </p>
+            
+            <p><button>Submit Booking</button></p>
+            <p><button type="button" class="button close" onclick="closeregistForm()">Close</button></p>
+        </form>
+        </div>
+
+    </body>
+</html>
